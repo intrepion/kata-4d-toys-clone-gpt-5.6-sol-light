@@ -32,6 +32,14 @@ _Avoid_: hidden Toy, despawned Toy, deleted Toy
 A curated arrangement of Toys and surroundings that supports a particular form of open-ended play or discovery.
 _Avoid_: level, stage, map
 
+**Sandbox Scene**:
+A Scene intended for free construction and experimentation rather than a particular guided discovery.
+_Avoid_: editor, builder level, creative mode
+
+**Toy Drawer**:
+The collection from which players add supported Toys to a Sandbox Scene.
+_Avoid_: inventory, asset browser, object palette
+
 **Independent Recreation**:
 An original experience that preserves the reference game's central tactile fantasy without copying its name, assets, writing, audio, interface, or scene compositions.
 _Avoid_: replica, remake, port
