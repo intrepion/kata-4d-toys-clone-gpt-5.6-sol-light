@@ -24,6 +24,10 @@ _Avoid_: camera rotation, world spin
 A manipulable four-dimensional object in the 4D World.
 _Avoid_: prop, entity, model
 
+**Toy Family**:
+A geometrically distinct kind of Toy whose members may vary in size, color, or other presentation.
+_Avoid_: asset class, prefab, skin
+
 **Off-Slice Toy**:
 A Toy that continues to exist in the 4D World while having no intersection with the current 3D Slice.
 _Avoid_: hidden Toy, despawned Toy, deleted Toy
@@ -39,6 +43,18 @@ _Avoid_: editor, builder level, creative mode
 **Toy Drawer**:
 The collection from which players add supported Toys to a Sandbox Scene.
 _Avoid_: inventory, asset browser, object palette
+
+**Gallery**:
+The complete collection of Scenes available for exploration.
+_Avoid_: level select, campaign, world map
+
+**Introduction**:
+The short, skippable sequence that teaches slicing by analogy before revealing the full Gallery.
+_Avoid_: tutorial campaign, training level
+
+**Discovery Journal**:
+An optional collection of diagrams and explanations for concepts the player encounters.
+_Avoid_: codex, manual, lesson book
 
 **Independent Recreation**:
 An original experience that preserves the reference game's central tactile fantasy without copying its name, assets, writing, audio, interface, or scene compositions.
