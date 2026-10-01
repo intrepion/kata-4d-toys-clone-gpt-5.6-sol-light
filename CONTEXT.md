@@ -44,6 +44,14 @@ _Avoid_: editor, builder level, creative mode
 The collection from which players add supported Toys to a Sandbox Scene.
 _Avoid_: inventory, asset browser, object palette
 
+**Experiment**:
+A player-created arrangement of Toys within a Sandbox Scene.
+_Avoid_: project, world, custom level
+
+**Saved Experiment**:
+The single Experiment deliberately preserved by the player for a later session.
+_Avoid_: autosave, checkpoint, save slot
+
 **Gallery**:
 The complete collection of Scenes available for exploration.
 _Avoid_: level select, campaign, world map
