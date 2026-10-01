@@ -1,11 +1,12 @@
 export type Vec4 = [number, number, number, number];
 export type Vec3 = [number, number, number];
 export type Rotation4 = [number, number, number];
-export type ShapeKind = 'tesseract' | 'hypersphere' | 'simplex' | 'orthoplex';
+export type ShapeKind = 'tesseract' | 'hypersphere' | 'simplex' | 'orthoplex' | 'duocylinder' | 'hypertorus';
 
 export interface Slice3D {
   points: Vec3[];
   radius?: number;
+  depth?: number;
 }
 
 type Edge = [number, number];
@@ -65,7 +66,7 @@ export function rotate4D(vertex: Vec4, angles: Rotation4): Vec4 {
 }
 
 export function shapeVertices(kind: ShapeKind, size: number, rotation: Rotation4): Vec4[] {
-  if (kind === 'hypersphere') return [];
+  if (kind === 'hypersphere' || kind === 'duocylinder' || kind === 'hypertorus') return [];
   return polytopes[kind].vertices.map((vertex) =>
     rotate4D(vertex.map((coordinate) => coordinate * size) as Vec4, rotation),
   );
@@ -86,6 +87,16 @@ export function sliceShape(
   if (kind === 'hypersphere') {
     if (Math.abs(sliceW) > size) return { points: [] };
     return { points: [], radius: Math.sqrt((size - Math.abs(sliceW)) * (size + Math.abs(sliceW))) };
+  }
+  if (kind === 'duocylinder') {
+    const radial = size * 0.62;
+    if (Math.abs(sliceW) > radial) return { points: [] };
+    return { points: [], radius: radial, depth: 2 * Math.sqrt(radial ** 2 - sliceW ** 2) };
+  }
+  if (kind === 'hypertorus') {
+    const tube = size * 0.24;
+    if (Math.abs(sliceW) > tube) return { points: [] };
+    return { points: [], radius: size * 0.58, depth: Math.sqrt(tube ** 2 - sliceW ** 2) };
   }
 
   const epsilon = size * 1e-8;
@@ -111,4 +122,3 @@ export function sliceShape(
   }
   return { points };
 }
-

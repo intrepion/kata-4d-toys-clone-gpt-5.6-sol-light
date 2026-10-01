@@ -25,5 +25,16 @@ describe('4D geometry', () => {
   it.each(['simplex', 'orthoplex'] as const)('creates a central slice for %s', (kind) => {
     expect(sliceShape(kind, 2, [0.2, -0.1, 0.3], 0).points.length).toBeGreaterThanOrEqual(4);
   });
-});
 
+  it('slices a duocylinder into a cylinder with shrinking depth', () => {
+    const center = sliceShape('duocylinder', 2, [0, 0, 0], 0);
+    const offset = sliceShape('duocylinder', 2, [0, 0, 0], 1);
+    expect(center.radius).toBeCloseTo(1.24);
+    expect(center.depth).toBeGreaterThan(offset.depth!);
+  });
+
+  it('slices a hypertorus by shrinking its tube', () => {
+    expect(sliceShape('hypertorus', 2, [0, 0, 0], 0).depth).toBeCloseTo(0.48);
+    expect(sliceShape('hypertorus', 2, [0, 0, 0], 0.5).depth).toBeUndefined();
+  });
+});

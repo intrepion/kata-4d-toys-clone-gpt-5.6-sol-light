@@ -10,3 +10,17 @@ button, input { font: inherit; } button { cursor: pointer; border: 0; border-rad
 .controls { display: grid; grid-template-columns: minmax(220px, 2fr) repeat(3, minmax(130px, 1fr)); gap: .8rem; align-items: end; background: #f5f1e8; border: 1px solid #fff; border-radius: 1.25rem; padding: 1rem; }.controls label { display: grid; gap: .4rem; font-size: .72rem; font-weight: 750; text-transform: uppercase; letter-spacing: .08em; }.controls input { width: 100%; accent-color: #c2694b; }.button-row { grid-column: 1/-1; display: flex; gap: .55rem; flex-wrap: wrap; }
 dialog { max-width: 520px; border: 0; border-radius: 1.5rem; padding: 2rem; background: #f8f3e8; color: #26332e; box-shadow: 0 30px 100px #17251f77; } dialog::backdrop { background: #17251f99; backdrop-filter: blur(5px); } dialog h2 { font: 500 2.4rem Georgia, serif; margin: .4rem 0; } dialog p { line-height: 1.65; color: #51615a; }.close { float: right; padding: .35rem .7rem; font-size: 1.2rem; }
 @media (max-width: 760px) { .game-shell { grid-template-rows: auto 58vh auto; }.controls { grid-template-columns: 1fr 1fr; }.wide { grid-column: 1/-1; }.scene-title p { display: none; }.readout { top: auto; bottom: 1rem; }.topbar .eyebrow { display: none; } }
+
+.topbar nav { display: flex; gap: .5rem; }
+.button-row { align-items: center; }
+.toy-add { background: #d9ddd6; color: #26332e; padding: .55rem .75rem; font-size: .72rem; }
+.drawer-label { margin-left: auto; font-size: .65rem; text-transform: uppercase; letter-spacing: .1em; font-weight: 800; }
+dialog#gallery-dialog { max-width: min(900px, 92vw); }
+.gallery-grid { display: grid; grid-template-columns: repeat(2, minmax(220px, 1fr)); gap: .7rem; }
+.scene-choice { border-radius: 1rem; padding: 1rem; text-align: left; display: grid; grid-template-columns: 2rem 1fr; background: #e8e6da; color: #26332e; }
+.scene-choice span { grid-row: 1/3; color: #a0543c; }
+.scene-choice strong { font: 500 1.1rem Georgia, serif; }
+.scene-choice small { color: #617068; margin-top: .2rem; }
+#journal-pages article { border-top: 1px solid #c8ccc4; padding: .8rem 0; }
+#journal-pages article p { margin: .25rem 0 0; }
+@media (max-width: 760px) { .topbar #help { display: none; } .gallery-grid { grid-template-columns: 1fr; } .drawer-label { width: 100%; margin-left: 0; } }
