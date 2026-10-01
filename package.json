@@ -8,16 +8,17 @@
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview --host 127.0.0.1",
     "test": "vitest run",
-    "check": "npm test && npm run build"
+    "test:e2e": "playwright test",
+    "check": "npm test && npm run build && npm run test:e2e"
   },
   "dependencies": {
     "three": "^0.180.0"
   },
   "devDependencies": {
+    "@playwright/test": "^1.55.1",
     "@types/three": "^0.180.0",
     "typescript": "^5.9.2",
     "vite": "^7.1.7",
     "vitest": "^4.1.11"
   }
 }
-
