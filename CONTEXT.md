@@ -12,6 +12,10 @@ _Avoid_: 5D world, time dimension
 The three-dimensional intersection through which the player sees and touches the 4D World. It is not a projection of the entire world.
 _Avoid_: 3D projection, viewport, camera plane
 
+**Projection Overlay**:
+An optional, non-physical view of geometry beyond the 3D Slice that helps explain a Toy's four-dimensional structure.
+_Avoid_: ghost Toy, hidden geometry, collision view
+
 **Slice Position**:
 The 3D Slice's location along the fourth spatial dimension.
 _Avoid_: timeline, time position, depth
@@ -75,6 +79,10 @@ _Avoid_: tutorial campaign, training level
 **Discovery Journal**:
 An optional collection of diagrams and explanations for concepts the player encounters.
 _Avoid_: codex, manual, lesson book
+
+**Discovery**:
+An optional recognition that the player has demonstrated a Scene's central spatial idea, without ending or locking the Scene.
+_Avoid_: objective, achievement, win condition
 
 **Independent Recreation**:
 An original experience that preserves the reference game's central tactile fantasy without copying its name, assets, writing, audio, interface, or scene compositions.
