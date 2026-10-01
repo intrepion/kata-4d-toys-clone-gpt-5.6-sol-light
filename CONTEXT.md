@@ -32,6 +32,18 @@ _Avoid_: asset class, prefab, skin
 A Toy that continues to exist in the 4D World while having no intersection with the current 3D Slice.
 _Avoid_: hidden Toy, despawned Toy, deleted Toy
 
+**Grab**:
+A temporary attachment through which the player directly manipulates an entire Toy from its visible intersection.
+_Avoid_: cursor lock, drag, telekinesis
+
+**Recovery Boundary**:
+The outer extent of a Scene beyond which a Toy becomes available for deliberate return instead of being lost or destroyed.
+_Avoid_: kill plane, despawn zone, world edge
+
+**Recoverable Toy**:
+A Toy outside a Scene's useful play area that remains part of the Scene and can be returned by the player.
+_Avoid_: deleted Toy, destroyed Toy, respawn
+
 **Scene**:
 A curated arrangement of Toys and surroundings that supports a particular form of open-ended play or discovery.
 _Avoid_: level, stage, map
