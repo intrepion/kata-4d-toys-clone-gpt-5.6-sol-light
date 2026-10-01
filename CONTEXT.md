@@ -68,6 +68,10 @@ _Avoid_: project, world, custom level
 The single Experiment deliberately preserved by the player for a later session.
 _Avoid_: autosave, checkpoint, save slot
 
+**Experiment File**:
+A versioned, portable representation of an Experiment that the player deliberately exports or imports.
+_Avoid_: cloud save, account data, project file
+
 **Gallery**:
 The complete collection of Scenes available for exploration.
 _Avoid_: level select, campaign, world map
