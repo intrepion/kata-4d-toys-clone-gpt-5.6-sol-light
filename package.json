@@ -4,8 +4,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite --host 127.0.0.1",
-    "build": "tsc --noEmit && vite build",
+    "dev": "npm run bundle:direct && vite --host 127.0.0.1",
+    "bundle:direct": "esbuild src/main.ts --bundle --format=iife --platform=browser --target=es2022 --outfile=game.bundle.js && esbuild src/main.ts --bundle --format=iife --platform=browser --target=es2022 --outfile=public/game.bundle.js",
+    "build": "npm run bundle:direct && tsc --noEmit && vite build",
     "preview": "vite preview --host 127.0.0.1",
     "test": "vitest run",
     "test:e2e": "playwright test",
@@ -17,6 +18,7 @@
   "devDependencies": {
     "@playwright/test": "^1.55.1",
     "@types/three": "^0.180.0",
+    "esbuild": "^0.28.2",
     "typescript": "^5.9.2",
     "vite": "^7.1.7",
     "vitest": "^4.1.11"

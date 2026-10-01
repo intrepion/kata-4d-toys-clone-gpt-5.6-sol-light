@@ -20,6 +20,8 @@ npm run build
 npm run preview
 ```
 
+You can also double-click the repository's `index.html` to play directly in an external browser without starting a server. Run `npm run bundle:direct` after source changes to refresh that direct-launch bundle.
+
 ## Controls
 
 - Drag a visible Toy to grab and throw it.
