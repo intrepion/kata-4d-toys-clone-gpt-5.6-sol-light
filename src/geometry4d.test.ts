@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { rotate4D, sliceShape } from './geometry4d';
+import { projectShape, rotate4D, sliceShape } from './geometry4d';
 
 describe('4D geometry', () => {
   it('rotates between x and w without changing length', () => {
@@ -12,6 +12,7 @@ describe('4D geometry', () => {
   it('slices a centered tesseract into eight cube vertices', () => {
     expect(sliceShape('tesseract', 2, [0, 0, 0], 0).points).toHaveLength(8);
   });
+  it('projects all 32 tesseract edges without making them physical', () => expect(projectShape('tesseract', 2, [0.2, 0, 0])).toHaveLength(32));
 
   it('removes a tesseract beyond its W extent', () => {
     expect(sliceShape('tesseract', 2, [0, 0, 0], 1.01).points).toHaveLength(0);

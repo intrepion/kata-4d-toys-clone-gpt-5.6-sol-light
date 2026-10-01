@@ -1,5 +1,9 @@
 import { expect, test } from '@playwright/test';
 
+test.beforeEach(async ({ page }) => {
+  await page.addInitScript(() => { if (!localStorage.getItem('elseplane:preferences')) localStorage.setItem('elseplane:preferences', JSON.stringify({ introductionComplete: true, discoveries: [] })); });
+});
+
 test('travels through W and reveals an empty slice', async ({ page }) => {
   await page.goto('/');
   await expect(page.getByRole('heading', { name: 'First Crossing' })).toBeVisible();
@@ -34,4 +38,3 @@ test('persists settings, discoveries, and an explicit experiment', async ({ page
   await page.getByRole('button', { name: 'Open saved' }).click();
   await expect(page.getByText('W 1.00')).toBeVisible();
 });
-

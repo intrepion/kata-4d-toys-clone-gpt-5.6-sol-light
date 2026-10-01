@@ -11,6 +11,7 @@ export interface Slice3D {
 
 type Edge = [number, number];
 type Polytope = { vertices: Vec4[]; edges: Edge[] };
+export interface ProjectedEdge { start: Vec3; end: Vec3; depth: number; }
 
 const tesseract: Polytope = {
   vertices: Array.from({ length: 16 }, (_, bits) =>
@@ -70,6 +71,16 @@ export function shapeVertices(kind: ShapeKind, size: number, rotation: Rotation4
   return polytopes[kind].vertices.map((vertex) =>
     rotate4D(vertex.map((coordinate) => coordinate * size) as Vec4, rotation),
   );
+}
+
+export function projectShape(kind: ShapeKind, size: number, rotation: Rotation4): ProjectedEdge[] {
+  if (kind === 'hypersphere' || kind === 'duocylinder' || kind === 'hypertorus') return [];
+  const vertices = shapeVertices(kind, size, rotation);
+  return polytopes[kind].edges.map(([a, b]) => ({
+    start: [vertices[a][0], vertices[a][1], vertices[a][2]],
+    end: [vertices[b][0], vertices[b][1], vertices[b][2]],
+    depth: (vertices[a][3] + vertices[b][3]) / 2,
+  }));
 }
 
 const distanceSquared = (a3: Vec3, b3: Vec3): number =>
