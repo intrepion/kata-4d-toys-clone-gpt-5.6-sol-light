@@ -4,12 +4,13 @@ import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { sliceShape, type Rotation4 } from './geometry4d';
 import { FIXED_STEP, isRecoverable, stepToy, type ToyState } from './physics';
 import { scenes, type SceneDefinition } from './scenes';
+import type { ExperimentFile } from './storage';
 
 export class Sandbox {
   private renderer: THREE.WebGLRenderer; private scene = new THREE.Scene(); private camera = new THREE.PerspectiveCamera(42, 1, 0.1, 100);
   private controls: OrbitControls; private meshes = new Map<string, THREE.Mesh>(); private raycaster = new THREE.Raycaster(); private pointer = new THREE.Vector2();
   private dragPlane = new THREE.Plane(); private dragPoint = new THREE.Vector3(); private grabbed?: ToyState; private lastDrag = new THREE.Vector3();
-  private lastTime = performance.now(); private accumulator = 0;
+  private lastTime = performance.now(); private accumulator = 0; private history: ToyState[][] = []; private future: ToyState[][] = [];
   toys: ToyState[] = []; sliceW = 0; sliceRotation: Rotation4 = [0, 0, 0]; paused = false; timeScale = 1; selectedId?: string; onChange?: () => void; currentScene: SceneDefinition = scenes[1];
 
   constructor(private host: HTMLElement) {
@@ -21,12 +22,17 @@ export class Sandbox {
     const grid = new THREE.GridHelper(20, 20, 0x72867b, 0x9ea69e); grid.position.y = -2.36; this.scene.add(grid);
     this.reset(); addEventListener('resize', this.resize); this.renderer.domElement.addEventListener('pointerdown', this.pointerDown); addEventListener('pointermove', this.pointerMove); addEventListener('pointerup', this.pointerUp); this.resize(); this.frame(performance.now());
   }
-  loadScene(id: string): void { this.currentScene = scenes.find((scene) => scene.id === id) ?? scenes[1]; this.reset(); }
+  private remember(): void { this.history.push(structuredClone(this.toys)); if (this.history.length > 50) this.history.shift(); this.future = []; }
+  loadScene(id: string): void { this.currentScene = scenes.find((scene) => scene.id === id) ?? scenes[1]; this.history = []; this.future = []; this.reset(); }
   reset(): void { this.toys = structuredClone(this.currentScene.toys); this.sliceW = 0; this.sliceRotation = [0, 0, 0]; this.selectedId = undefined; this.rebuild(); this.onChange?.(); }
-  addToy(kind: ToyState['kind']): void { const colors = [0xe78357, 0x7560a9, 0x4f8da5, 0xe6a548, 0x55a37e, 0xd76f63]; const index = this.toys.length; this.toys.push({ id: `${kind}-${Date.now()}`, kind, size: kind === 'tesseract' ? 1.8 : 1.35, color: colors[index % colors.length], position: [(index % 4) - 1.5, 2.3, 0, 0], velocity: [0, 0, 0, 0], rotation: [0, 0, 0] }); this.rebuild(); this.onChange?.(); }
-  recoverAll(): void { this.toys = this.toys.map((toy, index) => ({ ...toy, position: [index * 2 - 1, 0, 0, 0], velocity: [0, 0, 0, 0] })); this.rebuild(); this.onChange?.(); }
+  addToy(kind: ToyState['kind']): void { this.remember(); const colors = [0xe78357, 0x7560a9, 0x4f8da5, 0xe6a548, 0x55a37e, 0xd76f63]; const index = this.toys.length; this.toys.push({ id: `${kind}-${Date.now()}`, kind, size: kind === 'tesseract' ? 1.8 : 1.35, color: colors[index % colors.length], position: [(index % 4) - 1.5, 2.3, 0, 0], velocity: [0, 0, 0, 0], rotation: [0, 0, 0] }); this.rebuild(); this.onChange?.(); }
+  recoverAll(): void { this.remember(); this.toys = this.toys.map((toy, index) => ({ ...toy, position: [index * 2 - 1, 0, 0, 0], velocity: [0, 0, 0, 0] })); this.rebuild(); this.onChange?.(); }
   setSlice(value: number): void { this.sliceW = value; this.rebuild(); this.onChange?.(); }
   setRotation(axis: number, value: number): void { this.sliceRotation[axis] = value; this.rebuild(); this.onChange?.(); }
+  undo(): void { const previous = this.history.pop(); if (!previous) return; this.future.push(structuredClone(this.toys)); this.toys = previous; this.rebuild(); this.onChange?.(); }
+  redo(): void { const next = this.future.pop(); if (!next) return; this.history.push(structuredClone(this.toys)); this.toys = next; this.rebuild(); this.onChange?.(); }
+  experiment(): ExperimentFile { return { version: 1, sceneId: this.currentScene.id, sliceW: this.sliceW, toys: structuredClone(this.toys), savedAt: new Date().toISOString() }; }
+  openExperiment(file: ExperimentFile): void { this.currentScene = scenes.find((scene) => scene.id === file.sceneId) ?? scenes[7]; this.toys = structuredClone(file.toys); this.sliceW = file.sliceW; this.history = []; this.future = []; this.rebuild(); this.onChange?.(); }
   private rebuild(): void {
     for (const mesh of this.meshes.values()) { this.scene.remove(mesh); mesh.geometry.dispose(); } this.meshes.clear();
     for (const toy of this.toys) {

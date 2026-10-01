@@ -24,3 +24,8 @@ dialog#gallery-dialog { max-width: min(900px, 92vw); }
 #journal-pages article { border-top: 1px solid #c8ccc4; padding: .8rem 0; }
 #journal-pages article p { margin: .25rem 0 0; }
 @media (max-width: 760px) { .topbar #help { display: none; } .gallery-grid { grid-template-columns: 1fr; } .drawer-label { width: 100%; margin-left: 0; } }
+.import-label { cursor: pointer; border: 1px solid #7b8882; border-radius: 999px; padding: .55rem .8rem; font-size: .72rem; font-weight: 750; }.import-label input { display: none; }
+.setting { display: flex; align-items: center; gap: .7rem; padding: .75rem 0; font-weight: 700; }.setting input { width: 1.2rem; height: 1.2rem; accent-color: #a5543d; }
+#toast { position: fixed; z-index: 20; left: 50%; bottom: 1.5rem; transform: translate(-50%, 2rem); opacity: 0; pointer-events: none; color: #fff; background: #26332e; padding: .75rem 1.1rem; border-radius: 999px; transition: .2s ease; }#toast.show { transform: translate(-50%, 0); opacity: 1; }
+.high-contrast .scene-title, .high-contrast .readout, .high-contrast .controls { background: #fff; border-color: #26332e; }.high-contrast button { outline: 2px solid currentColor; outline-offset: 2px; }
+.reduced-motion *, .reduced-motion *::before, .reduced-motion *::after { scroll-behavior: auto !important; animation-duration: .001ms !important; transition-duration: .001ms !important; }
