@@ -1,6 +1,6 @@
-# 4D Toybox
+# Elseplane
 
-This context names the spatial world and the objects a player explores within it. The product is an independent recreation of the tactile ideas behind *4D Toys*, with an original identity and content.
+This context names the spatial world and the objects a player explores within Elseplane, a tactile fourth-dimensional toybox. The product is an independent recreation of the tactile ideas behind *4D Toys*, with an original identity and content.
 
 ## Language
 
