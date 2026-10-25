@@ -1,5 +1,9 @@
 # Elseplane
 
+## Play online
+
+[Play Elseplane](https://intrepion.github.io/kata-4d-toys-clone-gpt-5.6-sol-light/) — free, playable in your browser.
+
 Elseplane is a tactile fourth-dimensional toybox for desktop browsers. It renders genuine three-dimensional intersections of four-dimensional toys, allowing the player to move and rotate the visible slice, grab and throw what it intersects, and recover objects that still exist beyond sight.
 
 This is an original, independent experience inspired by the spatial ideas popularized by *4D Toys*. It does not use the reference game's code, assets, interface, writing, audio, or scene compositions.
