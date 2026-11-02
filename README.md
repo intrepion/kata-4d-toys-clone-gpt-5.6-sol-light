@@ -61,3 +61,7 @@ Elseplane is client-only: it has no accounts, backend, analytics, advertising, t
 ## License
 
 MIT. See [LICENSE](LICENSE).
+
+## Arcade metadata
+
+See [docs/arcade-metadata.md](docs/arcade-metadata.md) for the game-owned manifest and screenshot provenance.
