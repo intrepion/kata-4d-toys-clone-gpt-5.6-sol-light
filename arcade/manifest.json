@@ -1,6 +1,49 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "gameId": "kata-4d-toys-clone-gpt-5.6-sol-light",
   "playUrl": "https://intrepion.github.io/kata-4d-toys-clone-gpt-5.6-sol-light/",
-  "screenshots": []
+  "screenshots": [
+    {
+      "path": "arcade/screenshots/ci-20261102-01.jpg",
+      "sha256": "468df86bd641dedb1623981ecc7157adb8b00b9695857b31782a4fe8677370a7",
+      "alt": "Elseplane gameplay, view 1",
+      "provenance": {
+        "kind": "ci_gameplay_capture",
+        "sourcePath": "arcade/capture-evidence/ci-20261102-01.png",
+        "sourceSha256": "6804b92b9e4e00a22175c376ec1abb7e7eb6df2232c742c766567d139b92f2b3",
+        "captureCommit": "d5ba285f43a52db6b6d01b65bfc103be763290e7",
+        "workflowRunId": "41418743144",
+        "inputHashes": {
+          "index.html": "ecff7a4d393ff9be9d6881540b78e9215f4a257e2246919e60e18df847a31588",
+          "game.bundle.css": "8b7beb38880141af2a76fd4fc962573ea36f984a78b101a44ae34fc7a74e93af",
+          "game.bundle.js": "18a96a0ed69cf97d873fa76a6ac767efcc7dcbb8c782856ef9fe0208bcba90eb",
+          "favicon.svg": "fd89d40b419d5ebef852a4ca27c12d9d9c7629cdef7bd95909691983e5b19847"
+        },
+        "publishedFilesVerifiedAt": "2026-11-02T19:01:20Z",
+        "captureRecordPath": "arcade/capture-evidence/ci-20261102-record.json",
+        "captureRecordSha256": "95dac635f9c42367c4c361eccf43aeebd7753468b1c97fbaf7ebe15e9bd0b254"
+      }
+    },
+    {
+      "path": "arcade/screenshots/ci-20261102-02.jpg",
+      "sha256": "e3108eb6ff38221da9a297156a924e450f571697b24c3c3acf2cba8f3b509eb9",
+      "alt": "Elseplane gameplay, view 2",
+      "provenance": {
+        "kind": "ci_gameplay_capture",
+        "sourcePath": "arcade/capture-evidence/ci-20261102-02.png",
+        "sourceSha256": "f2b55eec5daa601dada6d5b6d1692a7bf4828f0c990d8375519be2fb6b7cfe3d",
+        "captureCommit": "d5ba285f43a52db6b6d01b65bfc103be763290e7",
+        "workflowRunId": "41418743144",
+        "inputHashes": {
+          "index.html": "ecff7a4d393ff9be9d6881540b78e9215f4a257e2246919e60e18df847a31588",
+          "game.bundle.css": "8b7beb38880141af2a76fd4fc962573ea36f984a78b101a44ae34fc7a74e93af",
+          "game.bundle.js": "18a96a0ed69cf97d873fa76a6ac767efcc7dcbb8c782856ef9fe0208bcba90eb",
+          "favicon.svg": "fd89d40b419d5ebef852a4ca27c12d9d9c7629cdef7bd95909691983e5b19847"
+        },
+        "publishedFilesVerifiedAt": "2026-11-02T19:01:20Z",
+        "captureRecordPath": "arcade/capture-evidence/ci-20261102-record.json",
+        "captureRecordSha256": "95dac635f9c42367c4c361eccf43aeebd7753468b1c97fbaf7ebe15e9bd0b254"
+      }
+    }
+  ]
 }

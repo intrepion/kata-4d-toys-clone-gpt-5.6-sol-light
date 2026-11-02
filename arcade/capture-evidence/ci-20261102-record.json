@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "workflowCommit": "55770abb1e76a9ffbfad4bbcf670c428e1987ad7",
+  "sourceCommit": "d5ba285f43a52db6b6d01b65bfc103be763290e7",
+  "runId": "41418743144",
+  "url": "http://127.0.0.1:4247/",
+  "inputs": {
+    "index.html": "ecff7a4d393ff9be9d6881540b78e9215f4a257e2246919e60e18df847a31588",
+    "game.bundle.css": "8b7beb38880141af2a76fd4fc962573ea36f984a78b101a44ae34fc7a74e93af",
+    "game.bundle.js": "18a96a0ed69cf97d873fa76a6ac767efcc7dcbb8c782856ef9fe0208bcba90eb",
+    "favicon.svg": "fd89d40b419d5ebef852a4ca27c12d9d9c7629cdef7bd95909691983e5b19847"
+  },
+  "browser": "153.0.8010.12",
+  "viewport": {
+    "width": 1280,
+    "height": 1000
+  },
+  "screenshots": [
+    "elseplane-01.png",
+    "elseplane-02.png"
+  ]
+}
