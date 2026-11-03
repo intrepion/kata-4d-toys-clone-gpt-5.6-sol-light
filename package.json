@@ -13,11 +13,11 @@
     "check": "npm test && npm run build && npm run test:e2e"
   },
   "dependencies": {
-    "three": "^0.180.0"
+    "three": "^0.187.0"
   },
   "devDependencies": {
     "@playwright/test": "^1.55.1",
-    "@types/three": "^0.180.0",
+    "@types/three": "^0.187.0",
     "esbuild": "^0.28.2",
     "typescript": "^7.0.2",
     "vite": "^8.3.5",
